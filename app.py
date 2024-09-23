@@ -1,5 +1,4 @@
 import io
-import random
 
 import chess
 import chess.pgn
@@ -7,14 +6,15 @@ import chess.svg
 import streamlit as st
 from datasets import load_dataset
 
-# Set page config and custom CSS
-st.set_page_config(page_title="Chess Openings Trainer", page_icon="♖")
+st.set_page_config(page_title="Practice Chess Openings", page_icon="♖")
 
 
 @st.cache_data
 def load_data():
     ds = load_dataset("Lichess/chess-openings", split="train")
     df = ds.to_pandas()
+    print(f"Total openings: {len(df)}")
+    print(df["pgn"].head())
     return df
 
 
@@ -37,7 +37,7 @@ if data.empty:
     st.stop()
 
 # App layout
-st.title("Chess Openings Trainer")
+st.title("Practice Chess Openings")
 
 with st.sidebar:
     st.header("Settings")
@@ -46,15 +46,17 @@ with st.sidebar:
     min_moves, max_moves = st.slider(
         "Select range of moves:", min_value=1, max_value=18, value=(1, 18), step=1
     )
+    print(f"{min_moves=}, {max_moves=}")
 
     # Hide next moves checkbox
     hide_next_moves = st.checkbox("Hide next moves", value=True)
 
     # Filter the data based on the min and max number of moves
     filtered_data = data[
-        (data["pgn"].str.count(".") >= min_moves)
-        & (data["pgn"].str.count(".") <= max_moves)
+        (data["pgn"].str.count("\.") >= min_moves)
+        & (data["pgn"].str.count("\.") <= max_moves)
     ]
+    print(f"Total openings after filtering: {len(filtered_data)}")
 
     if filtered_data.empty:
         st.error(
@@ -134,7 +136,7 @@ col1, col2 = st.columns([3, 1])
 
 with col1:
     if st.session_state.current_opening:
-        st.header(f":blue[{st.session_state.current_opening}]")
+        st.subheader(f":blue[{st.session_state.current_opening}]")
 
         col_prev, col_next, right_col = st.columns([1, 1, 1])
 
