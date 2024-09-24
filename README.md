@@ -1,8 +1,8 @@
 ---
 title: Practice Chess Openings
 emoji: ♖
-colorFrom: yellow
-colorTo: pink
+colorFrom: black
+colorTo: white
 sdk: streamlit
 sdk_version: 1.38.0
 app_file: app.py
