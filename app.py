@@ -7,7 +7,7 @@ import chess.svg
 import streamlit as st
 from datasets import load_dataset
 
-st.set_page_config(page_title="Practice Chess Openings", page_icon="♖")
+st.set_page_config(page_title="Chess Openings", page_icon="♖")
 
 # Load external CSS
 with open("style.css") as f:
@@ -62,10 +62,10 @@ def update_score():
 
 
 # App layout
-st.markdown(
-    "<h1 style='text-align: center; font-size: 32px; margin-bottom: 10px; margin-top: -25px; padding-top: 0; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);'>Practice Chess Openings</h1>",
-    unsafe_allow_html=True,
-)
+# st.markdown(
+#     "<h1 style='text-align: center; font-size: 32px; margin-bottom: 10px; margin-top: -25px; padding-top: 0; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);'>Practice Chess Openings</h1>",
+#     unsafe_allow_html=True,
+# )
 
 with st.sidebar:
     st.header("Settings")
@@ -356,7 +356,7 @@ with st.sidebar:
         help="1 point per correct move",
     )
 
-    col1, col2 = st.columns([3, 1])
+    col1, col2 = st.columns([2, 1])
     with col1:
         st.subheader("Completed Openings")
     with col2:
