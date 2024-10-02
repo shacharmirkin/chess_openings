@@ -1,0 +1,10 @@
+div[data-testid="element-container"]:has(button[kind="primary"]) button[kind="primary"] {
+    background-color: #9f1b4d;
+    color: white;
+    font-weight: bold;
+    border: none;
+}
+div[data-testid="element-container"]:has(button[kind="primary"]) button[kind="primary"]:hover {
+    background-color: #e83277;
+    color: white;
+}
