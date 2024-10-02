@@ -9,9 +9,8 @@ app_file: app.py
 pinned: false
 license: cc0-1.0
 datasets:
-
-- Lichess/chess-openings
-  suggested_hardware: cpu-basic
+  - Lichess/chess-openings
+suggested_hardware: cpu-basic
 ---
 
 # Chess Openings
@@ -41,3 +40,7 @@ See full notation [here](<https://en.wikipedia.org/wiki/Algebraic_notation_(ches
 ## Dataset
 
 This app is using the [Lichess](https://lichess.org/) openings dataset via [HuggingFace](https://huggingface.co/datasets/Lichess/chess-openings)
+
+## License
+
+The license is `CC0-1.0` to match the dataset's license.
