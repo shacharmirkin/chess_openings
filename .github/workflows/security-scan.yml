@@ -31,4 +31,6 @@ jobs:
           format: table
           severity: CRITICAL,HIGH
           ignore-unfixed: true
+          # Historical env freezes / caches — not deployable app lockfiles
+          skip-dirs: writer_id/envs,.venv,node_modules,venv
           exit-code: "1"
